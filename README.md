@@ -23,3 +23,13 @@ Da qui è possibile aggiungere, modificare, cancellare o visualizzare i dettagli
 
 Infine il tasto Aggiorna che serve a verificare "l'invecchiamento" dei prodotti e modificarne i prezzi in base ad esso.
 ![Refresh button](/Screens/NavBar&Refreshbtn.jpg)
+
+
+### Tecnologie usate per la realizzazione:
+- Asp.Net
+- C#
+- JQuery
+- Bootstrap
+- CSS
+- Razor
+- Entity Framework
