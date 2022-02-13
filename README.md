@@ -2,7 +2,9 @@
 Esercizio con operazioni CRUD | Asp.Net MVC
 
 
-Il Software in una pagina iniziale pubblica e accessibile da tutti.
+Il Software consiste in una pagina iniziale pubblica e accessibile da tutti.
 
-![Public Home Page]
-(Screens/Public Home Page.jpg)
+![Home Page]
+(Screens/PublicHomePage.jpg)
+
+In questa pagina vi sono tutti i prodotti disponibili e la possibilità di aggiungere una quantità del prodotto al carrello (*under construction*).
