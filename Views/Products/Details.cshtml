@@ -1,0 +1,55 @@
+﻿@model Pasticceria.Product
+
+@{
+    ViewBag.Title = "Dettagli Prodotto";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="justify-content-evenly">
+    <hr />
+    <div class="row">
+        <div class="col-6 text-center">
+            <h1 class="h2"> @Model.ProdName </h1>
+            <img src="~/GraphiCSS/@Model.Photo" alt="Alternate Text" style="height:300px; width:80%; position:center;" />
+
+            @*<h2>@Html.DisplayFor(model => model.ProdName)</h2>*@
+
+            @Html.DisplayNameFor(model => model.Price)
+
+        <p class="h4">@Html.DisplayFor(model => model.Price)</p>
+        </div>
+        <div class="col-6">
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Ingredients): </strong>
+                @Html.DisplayFor(model => model.Ingredients)
+            </p>
+            <p>
+                <strong>
+                    @Html.DisplayNameFor(model => model.ProdDate):
+                </strong>
+                @Html.DisplayFor(model => model.ProdDate)
+
+            </p>
+            <p>
+                <strong>
+                    @Html.DisplayNameFor(model => model.Details):
+                </strong>
+                @Html.DisplayFor(model => model.Details)
+            </p>
+            <p>
+                <strong>
+                    @Html.DisplayNameFor(model => model.NPieces):
+                </strong>
+                @Html.DisplayFor(model => model.NPieces)
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+<p>
+    @Html.ActionLink("Modifica", "Edit", new { id = Model.idProduct }) |
+    @Html.ActionLink("Lista Prodotti", "List")
+</p>

@@ -1,0 +1,56 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+body {
+    font-family: Maven Pro;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    
+}
+
+#PosterBg {
+    background-image: url(/GraphiCSS/BGPastry.jpg);
+    height: 420px;
+    background-position:center;
+    background-repeat:no-repeat;
+    position: relative;
+    border-radius: 0px 0px 33px 33px;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.roundcstm {
+    border-radius: 0px 0px 30px 30px;
+}
+
+.title1 {
+    font-size: 26px;
+    color: chocolate;
+}
+
+.prodPhoto {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+.btn{
+    color:floralwhite !important;
+}
+.fs-3{
+    font-family:Tahoma !important;
+}
+    

@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Pasticceria.Product>
+
+<h2> Home </h2>
+
+@{
+	ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+
+    @ViewBag.Error
+    @foreach (var item in Model)
+    {
+
+        <div class="col-4 text-center">
+            <div class="border-1 border-secondary rounded m-2 p-1 bg-gradient bg-secondary bg-opacity-10">
+                <a href="~/Products/Details/@item.idProduct">
+                    <p class="text-uppercase fs-3">
+                        @Html.DisplayFor(modelItem => item.ProdName, "", new { @class = "position-absolute " })
+                    </p>
+                    <img src="~/GraphiCSS/@item.Photo" alt="@item.ProdName" class="prodPhoto" />
+                </a>
+                <p>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </p>
+                <div id="cardbtn" class="btn-group my-2">
+                    <input type="number" placeholder="Quantità" name="qta" value="Quantità" />
+				
+                    @Html.ActionLink("Aggiungi al Carrello", "Cart", new { id = item.idProduct, qta =item.NPieces}, new { @class = "btn btn-info" })
+
+                    
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<table class="table">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.ProdName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Ingredients)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ProdDate)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Details)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Photo)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th></th>
+		</tr>
+
+	@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.ProdName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Ingredients)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ProdDate)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Details)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Photo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Price)
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "Edit", new { id=item.idProduct }) |
+				@Html.ActionLink("Details", "Details", new { id=item.idProduct }) |
+				@Html.ActionLink("Delete", "Delete", new { id=item.idProduct })
+			</td>
+		</tr>
+	}
+
+	</table>*@

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/80b886b6bd.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
+    <title>@ViewBag.Title - Pasticceria L&M</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="PosterBg" class="mx-2">
+
+        <nav class="navbar navbar-expand-lg roundcstm shadow fixed-bottom position-absolute">
+            <div class="container-fluid m-2">
+                <a class="navbar-brand d-inline-flex" href="/Home/Index">
+                    <img src="~/GraphiCSS/L&M_P-logo.png" alt="PastryIcon" style="height:40px" class="mx-2" />
+                    @*Pasticceria Luana&Maria*@
+                </a>
+                <h1 class="title1" >Pasticceria Luana & Maria </h1>
+                @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"> hh</span>
+                </button>*@
+                <div class="d-flex justify-content-end">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        string Saluto;
+                        if (DateTime.Now.Hour < 6 && DateTime.Now.Hour > 15)
+                        {
+                            Saluto = "Buonasera";
+                        }
+                        else
+                        {
+                            Saluto = "Buongiorno";
+                        }
+
+                        <div class="box-2">
+                            <p class="hover:animate-pulse">@Saluto @User.Identity.Name.ToUpper()</p>
+                            <div class="btn-group">     
+                            <a class="btn btn-info" href="/Products/List">Lista Prodotti</a>
+                            <a class="btn btn-danger" href="/Home/Logout">LOGOUT</a>
+                            </div>
+
+                        </div>
+
+
+                    }
+                    else
+                    {
+                        <div class="justify-content-end btn-group">
+                            <a class=" btn btn-info " href="/Home/Cart"> Carrello </a>
+                            <a class="btn btn-success " href="/Home/Login"> Login </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </nav>
+    </div>
+        
+    
+    <div class="container body-content my-3">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Developed by Anwar Hamida </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

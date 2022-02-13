@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Pasticceria.Product>
+
+@{
+    ViewBag.Title = "List";
+}
+
+
+<div class="btn-group">
+    @Html.ActionLink("Nuovo Prodotto", "Create","", new {@class="btn btn-success"})
+    @Html.ActionLink("Aggiorna", "Refresh","", new {@class="btn btn-success"})
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ingredients)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NPieces)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        <img src="~/GraphiCSS/@item.Photo" alt="@item.ProdName" style="height:80px; width:100px;" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProdName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ingredients)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProdDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Details)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NPieces)
+    </td>
+    <td class="btn-group">
+        @Html.ActionLink("Modifica", "Edit", new { id = item.idProduct }, new { @class = "btn btn-info" })
+        @Html.ActionLink("Dettagli", "Details", new { id = item.idProduct }, new { @class = "btn btn-info" })
+        @Html.ActionLink("Elimina", "Delete", new { id = item.idProduct }, new { @class = "btn btn-info" })
+    </td>
+</tr>
+}
+
+</table>

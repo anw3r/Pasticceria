@@ -1,0 +1,119 @@
+﻿@model Pasticceria.Product
+
+@{
+    ViewBag.Title = "Modifica";
+}
+
+<p class="text-center">@ViewBag.Title</p>
+<p class="text-danger"> @ViewBag.Error</p>
+
+@using (Html.BeginForm("Edit", "Products", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        @Html.HiddenFor(model=>model.idProduct)
+        <div class="col-6">
+
+
+            <div class="form-group">
+                <div class="m-2 form-floating">
+                    @Html.EditorFor(model => model.ProdName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nome Prodotto" } })
+                    <label for="ProdName"> @Html.LabelFor(model => model.ProdName)</label>
+                    @Html.ValidationMessageFor(model => model.ProdName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="m-2 form-floating">
+                    @Html.EditorFor(model => model.Ingredients, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ingredienti" } })
+                    <label for="Ingredients"> @Html.LabelFor(model => model.Ingredients) </label>
+                    @Html.ValidationMessageFor(model => model.Ingredients, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="m-2 form-floating">
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = "Data Accaduto" } })
+                    <label for="Price"> @Html.LabelFor(model => model.Price) </label>
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="m-2 form-floating">
+                @Html.EditorFor(model => model.ProdDate, new { htmlAttributes = new { @class = "form-control", Type = "text", @placeholder = "Details" } })
+                <label for="ProdDate"> @Html.LabelFor(model => model.ProdDate)</label>
+                @Html.ValidationMessageFor(model => model.ProdDate, "", new { @class = "text-danger" })
+            </div>
+        
+        </div>
+
+
+        <div class="col-6 ">
+
+
+            <div class="form-group">
+                <div class="m-2">
+                    @Html.TextBox("ProdImg", "", new { @class = "form-control", @Type = "file" })
+                    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div id="preview">
+                <img id="imgPreview" src="#" alt="Alternate Text" hidden />
+            </div>
+
+            <div class="m-2 form-floating">
+                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control", Type = "text", @placeholder = "Details" } })
+                <label for="Details"> @Html.LabelFor(model => model.Details)</label>
+                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <div class="m-2 form-floating">
+                    @Html.EditorFor(model => model.NPieces, new { htmlAttributes = new { @class = "form-control", @placeholder = "Pezzi Disponibili" } })
+                    <label for="NPieces"> @Html.LabelFor(model => model.NPieces) </label>
+                    @Html.ValidationMessageFor(model => model.NPieces, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" value="Modifica" class="btn btn-info" />
+    </div>
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("Lista Prodotti", "List")
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+
+    $('#ProdImg').on('change', function () {
+        $('#imgPreview').removeAttr('hidden');
+        function previewFile(input) {
+            var file = $("input[type=file]").get(0).files[0];
+
+            if (file) {
+
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    console.log(event.target.result);
+                    $('#preview').attr('src', event.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+        @*$('#preview').append('<img src='+$('#ProdImg').val()+' alt="Photo" />' );*@
+    });
+    </script>
+}
