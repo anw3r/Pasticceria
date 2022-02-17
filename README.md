@@ -1,6 +1,7 @@
 # Pasticceria 
-> ##### | Asp.Net MVC
-Esercizio
+ ##### | Asp.Net MVC
+
+> Esercizio per  Interlogica s.r.l
 
 
 Il Software consiste in una pagina iniziale pubblica e accessibile da tutti.
